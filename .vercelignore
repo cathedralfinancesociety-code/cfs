@@ -1,0 +1,5 @@
+# Source archive and dev artefacts — kept in git, not deployed.
+# Web-ready images live in images/ and uploads/; everything the site
+# actually loads must stay OUT of this file.
+website pics/
+screenshots/

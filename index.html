@@ -1,28 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cathedral Finance Society — Cathedral &amp; John Connon School, Mumbai</title>
+<meta name="description" content="The Cathedral Finance Society is the student-run finance society of the Cathedral &amp; John Connon School, Mumbai — running Portfolio, Project Sanchay, Profit Perspectives, Case of the Month, Money Talks and CSX.">
+<link rel="icon" href="uploads/logo-cfs.png">
+<link rel="apple-touch-icon" href="uploads/logo-cfs.png">
+<meta name="theme-color" content="#07030f">
+<link rel="canonical" href="https://thecathedralfinancesociety.vercel.app/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cathedral Finance Society">
+<meta property="og:title" content="Cathedral Finance Society">
+<meta property="og:description" content="The student-run finance society of the Cathedral &amp; John Connon School, Mumbai.">
+<meta property="og:url" content="https://thecathedralfinancesociety.vercel.app/">
+<meta property="og:image" content="https://thecathedralfinancesociety.vercel.app/uploads/logo-cfs.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cathedral Finance Society">
+<meta name="twitter:description" content="The student-run finance society of the Cathedral &amp; John Connon School, Mumbai.">
+<meta name="twitter:image" content="https://thecathedralfinancesociety.vercel.app/uploads/logo-cfs.png">
+
 <script src="./support.js"></script>
-<meta name="ext-resource-dependency" content=".image-slots.state.json" data-resource-id="imageslots">
-<template id="__bundler_thumbnail" data-bg-color="#07030f">
-  <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-    <rect width="800" height="500" fill="#07030f"/>
-    <circle cx="400" cy="210" r="72" fill="#3d1060" stroke="#a855f7" stroke-width="2"/>
-    <text x="400" y="225" text-anchor="middle" font-family="serif" font-size="52" font-weight="700" fill="#c4b5fd">CFS</text>
-    <text x="400" y="318" text-anchor="middle" font-family="serif" font-size="22" font-weight="300" letter-spacing="12" fill="rgba(240,232,255,0.7)">THE CATHEDRAL</text>
-    <text x="400" y="348" text-anchor="middle" font-family="serif" font-size="22" font-weight="700" letter-spacing="8" fill="#a855f7">FINANCE SOCIETY</text>
-    <rect x="160" y="385" width="480" height="1" fill="rgba(168,85,247,0.3)"/>
-    <text x="400" y="408" text-anchor="middle" font-family="sans-serif" font-size="11" letter-spacing="4" fill="rgba(240,232,255,0.3)">CATHEDRAL &amp; JOHN CONNON SCHOOL · MUMBAI</text>
-  </svg>
-</template>
 </head>
 <body>
 <x-dc>
 
 <helmet data-dc-atomics="">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&amp;display=swap" rel="stylesheet">
-<script src="./image-slot.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 .gallery-track::-webkit-scrollbar{height:6px}.gallery-track::-webkit-scrollbar-thumb{background:#4c1d95;border-radius:3px}
@@ -38,7 +43,7 @@ body{background:#07030f;color:#f0e8ff;font-family:'DM Sans',sans-serif;overflow-
 .ticker-band{display:flex;animation:ticker-scroll 60s linear infinite;width:max-content;will-change:transform}
 input:focus,textarea:focus{border-color:rgba(168,85,247,.5)!important;box-shadow:0 0 0 3px rgba(124,58,237,.1)}
 input::placeholder,textarea::placeholder{color:rgba(240,232,255,.2)}
-img,video,iframe,image-slot,svg{max-width:100%}
+img,video,iframe,svg{max-width:100%}
 input,textarea,select,button{max-width:100%;font-family:inherit}
 .nav-links{scrollbar-width:none}.nav-links::-webkit-scrollbar{display:none}
 @media(max-width:900px){
@@ -50,7 +55,6 @@ input,textarea,select,button{max-width:100%;font-family:inherit}
   [style*="height:260px"],[style*="height:220px"]{height:min(52vw,220px)!important}
 }
 </style>
-<script src="./image-slot.js"></script>
 </helmet>
 
 <!-- ═══ NAVBAR ═══ -->
@@ -273,7 +277,7 @@ input,textarea,select,button{max-width:100%;font-family:inherit}
         <div ref="{{ galleryRef }}" class="gallery-track" style="display:flex;gap:12px;overflow-x:auto;scroll-behavior:smooth;padding-bottom:12px;scroll-snap-type:x mandatory;">
           <sc-for list="{{ galleryPhotos }}" as="photo" hint-placeholder-count="15">
             <div style="flex:0 0 min(78vw,320px);height:220px;border-radius:3px;overflow:hidden;scroll-snap-align:start;">
-              <image-slot id="{{ photo.id }}" shape="rect" placeholder="Drop photo"></image-slot>
+              <img src="{{ photo.src }}" alt="{{ photo.alt }}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
           </sc-for>
         </div>
@@ -336,13 +340,13 @@ input,textarea,select,button{max-width:100%;font-family:inherit}
       <div data-animate="" style="margin-bottom:80px;">
         <div style="font:500 10px 'DM Sans';letter-spacing:.32em;color:#d4a853;text-transform:uppercase;margin-bottom:24px;text-align:center;">From Our Sessions</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:12px;margin-bottom:12px;">
-          <div style="height:260px;border-radius:3px;overflow:hidden;"><image-slot id="sanchay-1" shape="rect" placeholder="Drop session photo"></image-slot></div>
-          <div style="height:260px;border-radius:3px;overflow:hidden;"><image-slot id="sanchay-2" shape="rect" placeholder="Drop session photo"></image-slot></div>
+          <div style="height:260px;border-radius:3px;overflow:hidden;"><img src="images/sanchay-1.webp" alt="Project Sanchay financial-literacy session at the Jai Vakeel Foundation" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div style="height:260px;border-radius:3px;overflow:hidden;"><img src="images/sanchay-2.webp" alt="Project Sanchay financial-literacy session at the Jai Vakeel Foundation" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:12px;">
-          <div style="height:220px;border-radius:3px;overflow:hidden;"><image-slot id="sanchay-3" shape="rect" placeholder="Drop session photo"></image-slot></div>
-          <div style="height:220px;border-radius:3px;overflow:hidden;"><image-slot id="sanchay-4" shape="rect" placeholder="Drop session photo"></image-slot></div>
-          <div style="height:220px;border-radius:3px;overflow:hidden;"><image-slot id="sanchay-5" shape="rect" placeholder="Drop session photo"></image-slot></div>
+          <div style="height:220px;border-radius:3px;overflow:hidden;"><img src="images/sanchay-3.webp" alt="Project Sanchay financial-literacy session at the Jai Vakeel Foundation" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div style="height:220px;border-radius:3px;overflow:hidden;"><img src="images/sanchay-4.webp" alt="Project Sanchay financial-literacy session at the Jai Vakeel Foundation" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div style="height:220px;border-radius:3px;overflow:hidden;"><img src="images/sanchay-5.webp" alt="Project Sanchay financial-literacy session at the Jai Vakeel Foundation" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;object-position:50% 82%;"></div>
         </div>
       </div>
 
@@ -354,7 +358,7 @@ input,textarea,select,button{max-width:100%;font-family:inherit}
           <p style="font:400 14px/1.9 'DM Sans';color:rgba(240,232,255,.5);margin-bottom:24px;">We believe financial literacy is a right, not a privilege. Our primary partner is the Jai Vakeel Foundation, Mumbai's leading institution for children with intellectual disabilities. We are actively looking to expand our partnerships and reach.</p>
           <div style="background:linear-gradient(135deg,#1a0f04,#160b26);border:1px solid rgba(212,168,83,.45);border-radius:3px;padding:20px 24px;display:flex;align-items:center;gap:18px;box-shadow:0 0 24px rgba(212,168,83,.1);">
             <div style="width:56px;height:56px;flex-shrink:0;background:#fff;border-radius:8px;padding:6px;display:flex;align-items:center;justify-content:center;overflow:hidden;">
-              <image-slot id="jai-vakeel-logo" shape="rect" fit="contain" placeholder="JVF logo" style="width:100%;height:100%;background:transparent;"></image-slot>
+              <img src="images/jai-vakeel-logo.webp" alt="Jai Vakeel Foundation logo" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:contain;display:block;">
             </div>
             <div>
               <div style="font:700 9px 'DM Sans';letter-spacing:.14em;color:#d4a853;text-transform:uppercase;margin-bottom:6px;">★ Primary Partner</div>
@@ -418,7 +422,7 @@ input,textarea,select,button{max-width:100%;font-family:inherit}
             <div style="position:relative;background:#0a0518;border-right:1px solid rgba(168,85,247,.1);overflow:hidden;aspect-ratio:16/9;align-self:center;">
               
               
-            <image-slot id="podcast-ep-1" shape="rect" placeholder="Drop episode thumbnail"></image-slot></div>
+            <img src="images/podcast-ep-1.webp" alt="Profit Perspectives S2E03 thumbnail" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
             <div style="padding:28px 32px;display:flex;flex-direction:column;justify-content:center;">
               <div style="font:600 clamp(20px,2.8vw,24px)/1.3 'Cormorant Garamond';color:#f0e8ff;margin-bottom:10px;">Profit Perspectives — S2E03</div>
               <div style="font:400 13px/1.7 'DM Sans';color:rgba(240,232,255,.45);margin-bottom:16px;">In this episode we sit down with Mr Tandon to discuss his journey through India's evolving financial markets, the philosophy behind Quant Mutual Fund's investment framework, what separates successful investors from the crowd, his outlook on the future of the Indian economy and investing, and his advice for students aspiring to build a career in finance.</div>
@@ -434,10 +438,10 @@ input,textarea,select,button{max-width:100%;font-family:inherit}
           <div style="display: grid; grid-template-columns: clamp(120px,28%,300px) 1fr; position: relative; align-items:center">
             <div style="position:relative;background:#0a0518;border-right:1px solid rgba(168,85,247,.1);overflow:hidden;aspect-ratio:16/9;align-self:center;">
               
-              <image-slot id="podcast-ep-2" shape="rect" placeholder="Drop episode thumbnail"></image-slot>
+              <img src="images/podcast-ep-2.webp" alt="Profit Perspectives S2E02 thumbnail" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
             <div style="padding:28px 32px;display:flex;flex-direction:column;justify-content:center;">
-              <div style="font:600 clamp(20px,2.8vw,24px)/1.3 'Cormorant Garamond';color:#f0e8ff;margin-bottom:10px;">Profit Perspectives — S2Eo2</div>
+              <div style="font:600 clamp(20px,2.8vw,24px)/1.3 'Cormorant Garamond';color:#f0e8ff;margin-bottom:10px;">Profit Perspectives — S2E02</div>
               <div style="font:400 13px/1.7 'DM Sans';color:rgba(240,232,255,.45);margin-bottom:16px;">Rahul Khanna is Co-Founder and Managing Partner of Trifecta Capital, a specialised financing platform that has deployed over a billion dollars into some of India's most exciting new-economy businesses across healthcare, edtech, fintech and cleantech. A Cathedral alumnus himself, Rahul joins us to talk about his career journey, the world of venture debt, what it takes to back India's most ambitious founders, and his advice for the next generation looking to break into finance.</div>
               <a href="https://www.youtube.com/watch?v=pCKTk-u8n9o" target="_blank" style="display:inline-flex;align-items:center;gap:7px;font:600 11px 'DM Sans';letter-spacing:.06em;color:#f87171;text-decoration:none;margin-bottom:16px;width:max-content;"><svg width="15" height="15" viewBox="0 0 24 24" fill="#f87171"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>Watch on YouTube</a>
               <div style="display:flex;align-items:center;gap:8px;">
@@ -451,10 +455,10 @@ input,textarea,select,button{max-width:100%;font-family:inherit}
           <div style="display: grid; grid-template-columns: clamp(120px,28%,300px) 1fr; position: relative; align-items:center">
             <div style="position:relative;background:#0a0518;border-right:1px solid rgba(168,85,247,.1);overflow:hidden;aspect-ratio:16/9;align-self:center;">
               
-              <image-slot id="podcast-ep-3" shape="rect" placeholder="Drop episode thumbnail"></image-slot>
+              <img src="images/podcast-ep-3.webp" alt="Profit Perspectives S2E01 thumbnail" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
             <div style="padding:28px 32px;display:flex;flex-direction:column;justify-content:center;">
-              <div style="font:600 clamp(20px,2.8vw,24px)/1.3 'Cormorant Garamond';color:#f0e8ff;margin-bottom:10px;">Profit Perspectives — S2Eo1</div>
+              <div style="font:600 clamp(20px,2.8vw,24px)/1.3 'Cormorant Garamond';color:#f0e8ff;margin-bottom:10px;">Profit Perspectives — S2E01</div>
               <div style="font:400 13px/1.7 'DM Sans';color:rgba(240,232,255,.45);margin-bottom:16px;">Sachin Bhartiya is Co-Founder and Partner at Lighthouse Funds, a leading mid-market consumer and healthcare private equity firm in India, and a qualified Chartered Accountant from ICAI. Founded in 2007, Lighthouse manages around a billion dollars across funds and has invested in 35+ companies, including Bikaji Foods, Nykaa, Duroflex, Fabindia, Kama Ayurveda and Wow! Momo. Sachin currently sits on the boards of Bikaji Foods and Dhanuka Agritech, with past board roles at Shaily Engineering, Unibic Foods, Suraksha Diagnostic, Indian Herbs and Stylam Industries.</div>
               <a href="https://www.youtube.com/watch?v=__p6dbdE_iw" target="_blank" style="display:inline-flex;align-items:center;gap:7px;font:600 11px 'DM Sans';letter-spacing:.06em;color:#f87171;text-decoration:none;margin-bottom:16px;width:max-content;"><svg width="15" height="15" viewBox="0 0 24 24" fill="#f87171"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>Watch on YouTube</a>
               <div style="display:flex;align-items:center;gap:8px;">
@@ -468,10 +472,10 @@ input,textarea,select,button{max-width:100%;font-family:inherit}
           <div style="display: grid; grid-template-columns: clamp(120px,28%,300px) 1fr; position: relative; align-items:center">
             <div style="position:relative;background:#0a0518;border-right:1px solid rgba(168,85,247,.1);overflow:hidden;aspect-ratio:16/9;align-self:center;">
               
-              <image-slot id="podcast-ep-4" shape="rect" placeholder="Drop episode thumbnail"></image-slot>
+              <img src="images/podcast-ep-4.webp" alt="Profit Perspectives S1E02 thumbnail" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
             <div style="padding:28px 32px;display:flex;flex-direction:column;justify-content:center;">
-              <div style="font:600 clamp(20px,2.8vw,24px)/1.3 'Cormorant Garamond';color:#f0e8ff;margin-bottom:10px;">Profit Perspectives — S1Eo2</div>
+              <div style="font:600 clamp(20px,2.8vw,24px)/1.3 'Cormorant Garamond';color:#f0e8ff;margin-bottom:10px;">Profit Perspectives — S1E02</div>
               <div style="font:400 13px/1.7 'DM Sans';color:rgba(240,232,255,.45);margin-bottom:16px;">Gautam Trivedi is Co-Founder &amp; Managing Partner of Nepean Capital, with over 30 years in the Indian and Asian financial industry. He was previously CEO of Religare Capital Markets and a Managing Director in Global Banking &amp; Markets at Goldman Sachs India, having earlier worked at Reliance Industries, DSP Merrill Lynch, CLSA Asia and Jardine Fleming. He sits on the boards of Collective Artist Networks, Extramarks Education, Landmark Cars, Maddock Films, Raymond Realty and UFO Moviez.</div>
               <a href="https://www.youtube.com/watch?v=PLKtXeA7WXA" target="_blank" style="display:inline-flex;align-items:center;gap:7px;font:600 11px 'DM Sans';letter-spacing:.06em;color:#f87171;text-decoration:none;margin-bottom:16px;width:max-content;"><svg width="15" height="15" viewBox="0 0 24 24" fill="#f87171"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>Watch on YouTube</a>
               <div style="display:flex;align-items:center;gap:8px;">
@@ -485,10 +489,10 @@ input,textarea,select,button{max-width:100%;font-family:inherit}
           <div style="display: grid; grid-template-columns: clamp(120px,28%,300px) 1fr; position: relative; align-items:center">
             <div style="position:relative;background:#0a0518;border-right:1px solid rgba(168,85,247,.1);overflow:hidden;aspect-ratio:16/9;align-self:center;">
               
-              <image-slot id="podcast-ep-5" shape="rect" placeholder="Drop episode thumbnail"></image-slot>
+              <img src="images/podcast-ep-5.webp" alt="Profit Perspectives S1E01 thumbnail" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
             <div style="padding:28px 32px;display:flex;flex-direction:column;justify-content:center;">
-              <div style="font:600 clamp(20px,2.8vw,24px)/1.3 'Cormorant Garamond';color:#f0e8ff;margin-bottom:10px;">Profit Perspectives — S1Eo1</div>
+              <div style="font:600 clamp(20px,2.8vw,24px)/1.3 'Cormorant Garamond';color:#f0e8ff;margin-bottom:10px;">Profit Perspectives — S1E01</div>
               <div style="font:400 13px/1.7 'DM Sans';color:rgba(240,232,255,.45);margin-bottom:16px;">Vineet Bhatnagar is the MD &amp; CEO of PhillipCapital India, bringing 30+ years of expertise across equities, derivatives, and wealth management. An IIM Ahmedabad alumnus and former MD at MF Global Sify Securities, he is a prominent market thought leader featured in The Economic Times and Moneycontrol. He has also shaped industry standards through his service on the Governing Board of the BSE Brokers Forum.&nbsp;</div>
               <a href="https://www.youtube.com/watch?v=wmXmPPDF9t8" target="_blank" style="display:inline-flex;align-items:center;gap:7px;font:600 11px 'DM Sans';letter-spacing:.06em;color:#f87171;text-decoration:none;margin-bottom:16px;width:max-content;"><svg width="15" height="15" viewBox="0 0 24 24" fill="#f87171"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>Watch on YouTube</a>
               <div style="display:flex;align-items:center;gap:8px;">
@@ -530,9 +534,9 @@ input,textarea,select,button{max-width:100%;font-family:inherit}
               </div>
               <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:12px;">
                 <div style="font:600 clamp(20px,3.0vw,26px)/1.2 'Cormorant Garamond';color:#f0e8ff;">{{ w.title }}</div>
-                <div style="width:64px;height:64px;flex-shrink:0;background:#fff;border-radius:8px;padding:6px;display:flex;align-items:center;justify-content:center;overflow:hidden;">
-                  <image-slot id="cotm-winner-logo-{{ $index }}" shape="rect" fit="contain" placeholder="Logo" style="width:100%;height:100%;background:transparent;"></image-slot>
-                </div>
+                <sc-if value="{{ w.hasLogo }}" hint-placeholder-val="{{ true }}"><div style="width:64px;height:64px;flex-shrink:0;background:#fff;border-radius:8px;padding:6px;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+                  <img src="{{ w.logo }}" alt="{{ w.title }} logo" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:contain;display:block;">
+                </div></sc-if>
               </div>
               <div style="font:400 13px/1.7 'DM Sans';color:rgba(240,232,255,.5);margin-bottom:22px;max-width:700px;">{{ w.desc }}</div>
               <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
@@ -555,9 +559,9 @@ input,textarea,select,button{max-width:100%;font-family:inherit}
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;">
           <sc-for list="{{ honourableMentions }}" as="h" hint-placeholder-count="4">
             <div style="background: {{ h.bg }};border:1px solid {{ h.border }};border-radius:3px;padding:22px;opacity: {{ h.opacity }};">
-              <div style="width:36px;height:36px;background:#fff;border-radius:6px;padding:4px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;">
-                <image-slot id="cotm-mention-logo-{{ $index }}" shape="rect" fit="contain" placeholder="Logo" style="width:100%;height:100%;background:transparent;"></image-slot>
-              </div>
+              <sc-if value="{{ h.hasLogo }}" hint-placeholder-val="{{ true }}"><div style="width:36px;height:36px;background:#fff;border-radius:6px;padding:4px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+                <img src="{{ h.logo }}" alt="{{ h.title }} logo" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:contain;display:block;">
+              </div></sc-if>
               <div style="font:600 16px/1.3 'Cormorant Garamond';color:#f0e8ff;margin-bottom:6px;">{{ h.title }}</div>
               <div style="font:400 12px 'DM Sans';color:rgba(240,232,255,.35);margin-bottom:16px;">{{ h.author }}</div>
               <sc-if value="{{ h.hasLink }}" hint-placeholder-val="{{ false }}">
@@ -582,7 +586,7 @@ input,textarea,select,button{max-width:100%;font-family:inherit}
                 <span style="font:400 10px 'DM Sans';color:rgba(240,232,255,.2);">#{{ article.num }}</span>
               </div>
               <div style="width:36px;height:36px;background:#fff;border-radius:6px;padding:4px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;">
-                <image-slot id="cotm-logo-{{ article.idx }}" shape="rect" fit="contain" placeholder="Logo" style="width:100%;height:100%;background:transparent;"></image-slot>
+                <img src="{{ article.logo }}" alt="{{ article.title }} logo" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:contain;display:block;">
               </div>
               <a href="{{ article.link }}" target="_blank" style="text-decoration:none;font:600 17px/1.3 'Cormorant Garamond';color:#f0e8ff;display:block;margin-bottom:8px;" style-hover="color:#fca5a5;">{{ article.title }}</a>
               <div style="font:400 12px 'DM Sans';color:rgba(240,232,255,.35);margin-bottom:18px;">{{ article.author }}</div>
@@ -617,49 +621,49 @@ input,textarea,select,button{max-width:100%;font-family:inherit}
         <div style="background:#110828;border:1px solid rgba(168,85,247,.1);border-radius:3px;padding:28px;transition:border-color .3s,transform .3s;" style-hover="border-color: rgba(168,85,247,.35); transform: translateY(-3px);">
           <div style="font:600 clamp(17px,2vw,20px)/1.3 'Cormorant Garamond';color:#f0e8ff;margin-bottom:16px;">Money Talks June-July 2026</div>
           <div style="position:relative;width:100%;padding-top:129.4%;background:#0a0518;border:1px solid rgba(168,85,247,.14);border-radius:3px;overflow:hidden;margin-bottom:16px;">
-            <image-slot id="newsletter-0" shape="rect" fit="contain" placeholder="Drop newsletter (PDF page / cover)" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+            <img src="images/newsletter-0.webp" alt="Money Talks June-July 2026 newsletter cover" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;">
           </div>
           <a href="https://drive.google.com/file/d/1Vt-TMxQ1TNcLFL7xVg5xkT3wXsJvBuMe/view?usp=drive_link" target="_blank" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.3);color:#c4b5fd;padding:9px 18px;font:600 10px 'DM Sans';letter-spacing:.1em;text-transform:uppercase;border-radius:2px;transition:background .2s,border-color .2s;" style-hover="background: rgba(168,85,247,.22); border-color: rgba(168,85,247,.55);">Read Issue →</a>
         </div>
         <div style="background:#110828;border:1px solid rgba(168,85,247,.1);border-radius:3px;padding:28px;transition:border-color .3s,transform .3s;" style-hover="border-color: rgba(168,85,247,.35); transform: translateY(-3px);">
           <div style="font:600 clamp(17px,2vw,20px)/1.3 'Cormorant Garamond';color:#f0e8ff;margin-bottom:16px;">Money Talks April-May 2026</div>
           <div style="position:relative;width:100%;padding-top:129.4%;background:#0a0518;border:1px solid rgba(168,85,247,.14);border-radius:3px;overflow:hidden;margin-bottom:16px;">
-            <image-slot id="newsletter-1" shape="rect" fit="contain" placeholder="Drop newsletter (PDF page / cover)" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+            <img src="images/newsletter-1.webp" alt="Money Talks April-May 2026 newsletter cover" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;">
           </div>
           <a href="https://drive.google.com/file/d/1yC442ECgp1e_4nLdRN46S1k4FqDcZcRg/view?usp=drive_link" target="_blank" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.3);color:#c4b5fd;padding:9px 18px;font:600 10px 'DM Sans';letter-spacing:.1em;text-transform:uppercase;border-radius:2px;transition:background .2s,border-color .2s;" style-hover="background: rgba(168,85,247,.22); border-color: rgba(168,85,247,.55);">Read Issue →</a>
         </div>
         <div style="background:#110828;border:1px solid rgba(168,85,247,.1);border-radius:3px;padding:28px;transition:border-color .3s,transform .3s;" style-hover="border-color: rgba(168,85,247,.35); transform: translateY(-3px);">
           <div style="font:600 clamp(17px,2vw,20px)/1.3 'Cormorant Garamond';color:#f0e8ff;margin-bottom:16px;">Money Talks Nov-Dec 2025</div>
           <div style="position:relative;width:100%;padding-top:129.4%;background:#0a0518;border:1px solid rgba(168,85,247,.14);border-radius:3px;overflow:hidden;margin-bottom:16px;">
-            <image-slot id="newsletter-2" shape="rect" fit="contain" placeholder="Drop newsletter (PDF page / cover)" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+            <img src="images/newsletter-2.webp" alt="Money Talks Nov-Dec 2025 newsletter cover" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;">
           </div>
           <a href="https://drive.google.com/file/d/1wYunikFateHzOtc9322v9gr4KszZejgq/view" target="_blank" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.3);color:#c4b5fd;padding:9px 18px;font:600 10px 'DM Sans';letter-spacing:.1em;text-transform:uppercase;border-radius:2px;transition:background .2s,border-color .2s;" style-hover="background: rgba(168,85,247,.22); border-color: rgba(168,85,247,.55);">Read Issue →</a>
         </div>
         <div style="background:#110828;border:1px solid rgba(168,85,247,.1);border-radius:3px;padding:28px;transition:border-color .3s,transform .3s;" style-hover="border-color: rgba(168,85,247,.35); transform: translateY(-3px);">
           <div style="font:600 clamp(17px,2vw,20px)/1.3 'Cormorant Garamond';color:#f0e8ff;margin-bottom:16px;">Money Talks Sep-Oct 2025</div>
           <div style="position:relative;width:100%;padding-top:129.4%;background:#0a0518;border:1px solid rgba(168,85,247,.14);border-radius:3px;overflow:hidden;margin-bottom:16px;">
-            <image-slot id="newsletter-3" shape="rect" fit="contain" placeholder="Drop newsletter (PDF page / cover)" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+            <img src="images/newsletter-3.webp" alt="Money Talks Sep-Oct 2025 newsletter cover" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;">
           </div>
           <a href="https://drive.google.com/file/d/1pUxUnm9PH9lXhiSKxF2d4HD97eNbdCh_/view" target="_blank" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.3);color:#c4b5fd;padding:9px 18px;font:600 10px 'DM Sans';letter-spacing:.1em;text-transform:uppercase;border-radius:2px;transition:background .2s,border-color .2s;" style-hover="background: rgba(168,85,247,.22); border-color: rgba(168,85,247,.55);">Read Issue →</a>
         </div>
         <div style="background:#110828;border:1px solid rgba(168,85,247,.1);border-radius:3px;padding:28px;transition:border-color .3s,transform .3s;" style-hover="border-color: rgba(168,85,247,.35); transform: translateY(-3px);">
           <div style="font:600 clamp(17px,2vw,20px)/1.3 'Cormorant Garamond';color:#f0e8ff;margin-bottom:16px;">Money Talks July-Aug 2025</div>
           <div style="position:relative;width:100%;padding-top:129.4%;background:#0a0518;border:1px solid rgba(168,85,247,.14);border-radius:3px;overflow:hidden;margin-bottom:16px;">
-            <image-slot id="newsletter-4" shape="rect" fit="contain" placeholder="Drop newsletter (PDF page / cover)" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+            <img src="images/newsletter-4.webp" alt="Money Talks July-Aug 2025 newsletter cover" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;">
           </div>
           <a href="https://drive.google.com/file/d/1BeeWGNQujdcbqsu_6zAoJduSoXPXlLlR/view" target="_blank" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.3);color:#c4b5fd;padding:9px 18px;font:600 10px 'DM Sans';letter-spacing:.1em;text-transform:uppercase;border-radius:2px;transition:background .2s,border-color .2s;" style-hover="background: rgba(168,85,247,.22); border-color: rgba(168,85,247,.55);">Read Issue →</a>
         </div>
         <div style="background:#110828;border:1px solid rgba(168,85,247,.1);border-radius:3px;padding:28px;transition:border-color .3s,transform .3s;" style-hover="border-color: rgba(168,85,247,.35); transform: translateY(-3px);">
           <div style="font:600 clamp(17px,2vw,20px)/1.3 'Cormorant Garamond';color:#f0e8ff;margin-bottom:16px;">Money Talks May-June 2025</div>
           <div style="position:relative;width:100%;padding-top:129.4%;background:#0a0518;border:1px solid rgba(168,85,247,.14);border-radius:3px;overflow:hidden;margin-bottom:16px;">
-            <image-slot id="newsletter-5" shape="rect" fit="contain" placeholder="Drop newsletter (PDF page / cover)" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+            <img src="images/newsletter-5.webp" alt="Money Talks May-June 2025 newsletter cover" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;">
           </div>
           <a href="https://drive.google.com/file/d/1_I5MBbDBbw9TyqF62bEsMrlLwvSlFj8i/view" target="_blank" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.3);color:#c4b5fd;padding:9px 18px;font:600 10px 'DM Sans';letter-spacing:.1em;text-transform:uppercase;border-radius:2px;transition:background .2s,border-color .2s;" style-hover="background: rgba(168,85,247,.22); border-color: rgba(168,85,247,.55);">Read Issue →</a>
         </div>
         <div style="background:#110828;border:1px solid rgba(168,85,247,.1);border-radius:3px;padding:28px;transition:border-color .3s,transform .3s;" style-hover="border-color: rgba(168,85,247,.35); transform: translateY(-3px);">
           <div style="font:600 clamp(17px,2vw,20px)/1.3 'Cormorant Garamond';color:#f0e8ff;margin-bottom:16px;">Money Talks March-April 2025</div>
           <div style="position:relative;width:100%;padding-top:129.4%;background:#0a0518;border:1px solid rgba(168,85,247,.14);border-radius:3px;overflow:hidden;margin-bottom:16px;">
-            <image-slot id="newsletter-6" shape="rect" fit="contain" placeholder="Drop newsletter (PDF page / cover)" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+            <img src="images/newsletter-6.webp" alt="Money Talks March-April 2025 newsletter cover" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;">
           </div>
           <a href="https://drive.google.com/file/d/1VdQU6vfVzdxdbNjPj64MPqHRzsA62vPH/view" target="_blank" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.3);color:#c4b5fd;padding:9px 18px;font:600 10px 'DM Sans';letter-spacing:.1em;text-transform:uppercase;border-radius:2px;transition:background .2s,border-color .2s;" style-hover="background: rgba(168,85,247,.22); border-color: rgba(168,85,247,.55);">Read Issue →</a>
         </div>
@@ -747,7 +751,13 @@ input,textarea,select,button{max-width:100%;font-family:inherit}
               </div>
               <div><label style="display:block;font:500 10px 'DM Sans';letter-spacing:.12em;color:rgba(240,232,255,.38);text-transform:uppercase;margin-bottom:8px;">Subject</label><input type="text" value="{{ formSubject }}" onChange="{{ onSubjectChange }}" placeholder="Collaboration / Query / Other" style="width:100%;background:#110828;border:1px solid rgba(168,85,247,.15);color:#f0e8ff;padding:12px 16px;font:400 13px 'DM Sans';border-radius:2px;transition:border-color .2s;"></div>
               <div><label style="display:block;font:500 10px 'DM Sans';letter-spacing:.12em;color:rgba(240,232,255,.38);text-transform:uppercase;margin-bottom:8px;">Your Query</label><textarea value="{{ formMessage }}" onChange="{{ onMessageChange }}" required="" placeholder="Type your question or message here..." rows="6" style="width:100%;background:#110828;border:1px solid rgba(168,85,247,.15);color:#f0e8ff;padding:12px 16px;font:400 13px 'DM Sans';border-radius:2px;resize:vertical;transition:border-color .2s;"></textarea></div>
-              <button type="submit" style="background:linear-gradient(135deg,#7c3aed,#5b21b6);color:#fff;border:none;padding:16px clamp(16px,4vw,40px);font:600 11px 'DM Sans';letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border-radius:2px;align-self:flex-start;transition:transform .2s,box-shadow .2s;" style-hover="transform: translateY(-2px); box-shadow: 0 8px 24px rgba(124,58,237,.4);">Submit Query</button>
+              <button type="submit" disabled="{{ formSending }}" style="background:linear-gradient(135deg,#7c3aed,#5b21b6);color:#fff;border:none;padding:16px clamp(16px,4vw,40px);font:600 11px 'DM Sans';letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border-radius:2px;align-self:flex-start;opacity: {{ formButtonOpacity }};transition:transform .2s,box-shadow .2s;" style-hover="transform: translateY(-2px); box-shadow: 0 8px 24px rgba(124,58,237,.4);">{{ formButtonLabel }}</button>
+              <sc-if value="{{ formFailed }}" hint-placeholder-val="{{ false }}">
+                <div style="background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.3);border-radius:3px;padding:14px 16px;font:400 12px/1.6 'DM Sans';color:#fca5a5;">
+                  We couldn't send that — please check your connection and try again, or email us directly at
+                  <a href="mailto:cathfinancesociety@cajcs.in" style="color:#fca5a5;">cathfinancesociety@cajcs.in</a>.
+                </div>
+              </sc-if>
             </form>
           </sc-if>
         </div>
@@ -807,6 +817,8 @@ class Component extends DCLogic {
     expandedCase: null,
     form: { name: '', email: '', subject: '', message: '' },
     formSubmitted: false,
+    formSending: false,
+    formFailed: false,
     archiveShowCount: 9,
   };
 
@@ -828,21 +840,29 @@ class Component extends DCLogic {
     this.setState(s => ({ form: { ...s.form, [field]: val } }));
   }
 
+  // Posts the contact form to a Google Form. The request is `no-cors`, so the
+  // response is opaque and we cannot read a status code — a resolved promise
+  // means "it left the browser", not "Google accepted it". A rejection (offline,
+  // DNS failure, blocked request) IS detectable, so surface that instead of the
+  // success panel. Previously this showed "Query Submitted" unconditionally.
   handleSubmit(e) {
     e.preventDefault();
+    if (this.state.formSending) return;
     const FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSc4VDxiZKGJfYE3ssNts9PYaNTQZORwUbAhj93WBv547nXyKA/formResponse';
     const data = new URLSearchParams();
     data.append('entry.2114442266', this.state.form.name);
     data.append('entry.1068293758', this.state.form.email);
     data.append('entry.1277670331', this.state.form.subject);
     data.append('entry.1970988454', this.state.form.message);
+    this.setState({ formSending: true, formFailed: false });
     fetch(FORM_ACTION, {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: data.toString(),
-    }).catch(() => {});
-    this.setState({ formSubmitted: true });
+    })
+      .then(() => this.setState({ formSending: false, formSubmitted: true }))
+      .catch(() => this.setState({ formSending: false, formFailed: true }));
   }
 
   scrollGallery(dir) {
@@ -851,7 +871,7 @@ class Component extends DCLogic {
   }
 
   renderVals() {
-    const { currentPage, transitioning, expandedCase, form, formSubmitted, archiveShowCount } = this.state;
+    const { currentPage, transitioning, expandedCase, form, formSubmitted, formSending, formFailed, archiveShowCount } = this.state;
 
     const pages = ['home','portfolio','sanchay','perspectives','case','moneytalks','cse','team','contact'];
     const labels = ['Home','Portfolio 2026','Project Sanchay','Profit Perspectives','Case of the Month','Money Talks','CSX','Our Team','Contact Us'];
@@ -869,9 +889,20 @@ class Component extends DCLogic {
     const secretaryName  = this.props.secretaryName  ?? 'Vaibhav Sanghai';
     const secretaryRole  = this.props.secretaryRole  ?? 'Secretary';
     const bioPlaceholder = (n) => `Add a ~50-word introduction for ${n} here — background, focus areas within CFS, and a bit of personality.`;
+
+    // Member-supplied bios, keyed by name. Anyone not listed here falls back to
+    // bioPlaceholder() — add a key as each remaining bio comes in.
+    const bios = {
+      'Ranveer Chainani': 'I am Ranveer Chainani, President of the Cathedral Finance Society and an IBDP student at The Cathedral and John Connon School. Passionate about finance, economics, and leadership, I enjoy creating impactful initiatives, organizing events, and making financial education more accessible while fostering collaboration, innovation, and growth within the school community.',
+      'Myra Aggarwal': 'Hi, I’m Myra Aggarwal. I love listening to Music, binge watching Nolan movies, and, eating good food! I also have a keen interest in business and economics, which I’m currently studying at school as well.',
+      'Jia Laud': 'I’m Jia Laud, a Grade 11 IB student passionate about drama, debating, and public speaking. I enjoy taking on leadership roles, organising finance and entrepreneurship initiatives, and teaching debate to younger students. In my free time, I love watching documentaries on YouTube, exploring new ideas, and finding opportunities to learn, create, and challenge myself.',
+      'Ananya Kanodia': 'You’ll usually find me debating over the most trivial topics, lost in a netflix show all weekend, or blasting spotify playlists on repeat. Somewhere in between, you’ll probably find me reading about economics and policies.',
+    };
+    const bioOf = (n) => bios[n] || bioPlaceholder(n);
+
     const leadership = [
-      { name: presidentName, role: presidentRole, initials: initialsOf(presidentName), bio: bioPlaceholder(presidentName) },
-      { name: secretaryName, role: secretaryRole, initials: initialsOf(secretaryName), bio: bioPlaceholder(secretaryName) },
+      { name: presidentName, role: presidentRole, initials: initialsOf(presidentName), bio: bioOf(presidentName) },
+      { name: secretaryName, role: secretaryRole, initials: initialsOf(secretaryName), bio: bioOf(secretaryName) },
     ];
 
     const team = [
@@ -883,7 +914,7 @@ class Component extends DCLogic {
       { name: 'Jia Laud',        role: 'Organising Committee', initials: 'JL' },
       { name: 'Ananya Kanodia',  role: 'Organising Committee', initials: 'AK' },
       { name: 'Aashi Bubna',     role: 'Organising Committee', initials: 'AB' },
-    ].map(m => ({ ...m, bio: bioPlaceholder(m.name) }));
+    ].map(m => ({ ...m, bio: bioOf(m.name) }));
 
     // Portfolio 2026 events (excluding flagship Market Mayhem)
     const portfolioEvents = [
@@ -897,12 +928,60 @@ class Component extends DCLogic {
     ];
 
     // Profit Perspectives podcast episodes (5 slots)
+    // Mirrors the five episode cards rendered on the Profit Perspectives page,
+    // newest first. `number` is the EP badge shown on the card (list position),
+    // not the season/episode code in the title.
     const podcastEpisodes = [
-      { number: '05', title: 'Episode 5 — Title to be added', description: 'Episode description to be added.', guestName: 'Guest Name', guestRole: 'Title / Organisation', guestInitials: '?' },
-      { number: '04', title: 'Episode 4 — Title to be added', description: 'Episode description to be added.', guestName: 'Guest Name', guestRole: 'Title / Organisation', guestInitials: '?' },
-      { number: '03', title: 'Episode 3 — Title to be added', description: 'Episode description to be added.', guestName: 'Guest Name', guestRole: 'Title / Organisation', guestInitials: '?' },
-      { number: '02', title: 'Episode 2 — Title to be added', description: 'Episode description to be added.', guestName: 'Guest Name', guestRole: 'Title / Organisation', guestInitials: '?' },
-      { number: '01', title: 'Episode 1 — Title to be added', description: 'Episode description to be added.', guestName: 'Guest Name', guestRole: 'Title / Organisation', guestInitials: '?' },
+      {
+        number: '01',
+        title: 'Profit Perspectives — S2E03',
+        description: "In this episode we sit down with Mr Tandon to discuss his journey through India's evolving financial markets, the philosophy behind Quant Mutual Fund's investment framework, what separates successful investors from the crowd, his outlook on the future of the Indian economy and investing, and his advice for students aspiring to build a career in finance.",
+        guestName: 'Sandeep Tandon',
+        guestRole: 'Founder & CIO, Quant Mutual Fund',
+        guestInitials: 'S',
+        thumbnail: 'images/podcast-ep-1.webp',
+        link: 'https://www.youtube.com/watch?v=j2sTnleSPuU',
+      },
+      {
+        number: '02',
+        title: 'Profit Perspectives — S2E02',
+        description: "Rahul Khanna is Co-Founder and Managing Partner of Trifecta Capital, a specialised financing platform that has deployed over a billion dollars into some of India's most exciting new-economy businesses across healthcare, edtech, fintech and cleantech. A Cathedral alumnus himself, Rahul joins us to talk about his career journey, the world of venture debt, what it takes to back India's most ambitious founders, and his advice for the next generation looking to break into finance.",
+        guestName: 'Rahul Khanna',
+        guestRole: 'Co-Founder & Managing Partner, Trifecta Capital',
+        guestInitials: 'R',
+        thumbnail: 'images/podcast-ep-2.webp',
+        link: 'https://www.youtube.com/watch?v=pCKTk-u8n9o',
+      },
+      {
+        number: '03',
+        title: 'Profit Perspectives — S2E01',
+        description: 'Sachin Bhartiya is Co-Founder and Partner at Lighthouse Funds, a leading mid-market consumer and healthcare private equity firm in India, and a qualified Chartered Accountant from ICAI. Founded in 2007, Lighthouse manages around a billion dollars across funds and has invested in 35+ companies, including Bikaji Foods, Nykaa, Duroflex, Fabindia, Kama Ayurveda and Wow! Momo. Sachin currently sits on the boards of Bikaji Foods and Dhanuka Agritech, with past board roles at Shaily Engineering, Unibic Foods, Suraksha Diagnostic, Indian Herbs and Stylam Industries.',
+        guestName: 'Sachin Bhartiya',
+        guestRole: 'Co-Founder & Managing Partner, Lighthouse Funds',
+        guestInitials: 'S',
+        thumbnail: 'images/podcast-ep-3.webp',
+        link: 'https://www.youtube.com/watch?v=__p6dbdE_iw',
+      },
+      {
+        number: '04',
+        title: 'Profit Perspectives — S1E02',
+        description: 'Gautam Trivedi is Co-Founder & Managing Partner of Nepean Capital, with over 30 years in the Indian and Asian financial industry. He was previously CEO of Religare Capital Markets and a Managing Director in Global Banking & Markets at Goldman Sachs India, having earlier worked at Reliance Industries, DSP Merrill Lynch, CLSA Asia and Jardine Fleming. He sits on the boards of Collective Artist Networks, Extramarks Education, Landmark Cars, Maddock Films, Raymond Realty and UFO Moviez.',
+        guestName: 'Gautam Trivedi',
+        guestRole: 'Co-Founder & Managing Partner, Nepean Capital',
+        guestInitials: 'G',
+        thumbnail: 'images/podcast-ep-4.webp',
+        link: 'https://www.youtube.com/watch?v=PLKtXeA7WXA',
+      },
+      {
+        number: '05',
+        title: 'Profit Perspectives — S1E01',
+        description: 'Vineet Bhatnagar is the MD & CEO of PhillipCapital India, bringing 30+ years of expertise across equities, derivatives, and wealth management. An IIM Ahmedabad alumnus and former MD at MF Global Sify Securities, he is a prominent market thought leader featured in The Economic Times and Moneycontrol. He has also shaped industry standards through his service on the Governing Board of the BSE Brokers Forum.',
+        guestName: 'Vineet Bhatnagar',
+        guestRole: 'CEO & MD, PhillipCapital India',
+        guestInitials: 'V',
+        thumbnail: 'images/podcast-ep-5.webp',
+        link: 'https://www.youtube.com/watch?v=wmXmPPDF9t8',
+      },
     ];
 
     // COTM winners grid — first is the real winner, rest are upcoming slots
@@ -921,6 +1000,8 @@ class Component extends DCLogic {
       author: 'Vanika Bubna',
       initials: 'VB',
       link: 'https://drive.google.com/file/d/1Ac8mmywyTrN6xr0EQKr1eViwwDA9xc1Q/view?usp=drive_link',
+      hasLogo: true,
+      logo: 'images/cotm-winner-logo-0.webp',
     };
     const upcomingWinner = (i) => ({
       isReal: false,
@@ -937,15 +1018,17 @@ class Component extends DCLogic {
       author: 'To be announced',
       initials: '?',
       link: '#',
+      hasLogo: false,
+      logo: '',
     });
     const cotmWinners = [realWinner, upcomingWinner(1), upcomingWinner(2)];
 
     // Honourable mentions
     const honourableMentions = [
-      { bg: '#110828', border: 'rgba(168,85,247,.15)', opacity: '1', title: 'Adobe', author: 'Vihaa Makhecha', hasLink: true, link: 'https://drive.google.com/file/d/1sh2RJoSrMaYimoZn7iCEO41m2ss8EoGR/view?usp=drive_link' },
-      { bg: '#110828', border: 'rgba(168,85,247,.15)', opacity: '1', title: 'Anthropic', author: 'Varsha Reddy', hasLink: true, link: 'https://drive.google.com/file/d/1SCDidd_m9X-QlpWXa4Uic_BRpvwKnIGu/view?usp=drive_link' },
-      { bg: '#0f0820', border: 'rgba(168,85,247,.08)', opacity: '.5', title: 'Upcoming', author: 'To be announced', hasLink: false, link: '#' },
-      { bg: '#0f0820', border: 'rgba(168,85,247,.08)', opacity: '.5', title: 'Upcoming', author: 'To be announced', hasLink: false, link: '#' },
+      { bg: '#110828', border: 'rgba(168,85,247,.15)', opacity: '1', title: 'Adobe', author: 'Vihaa Makhecha', hasLink: true, link: 'https://drive.google.com/file/d/1sh2RJoSrMaYimoZn7iCEO41m2ss8EoGR/view?usp=drive_link', hasLogo: true, logo: 'images/cotm-mention-logo-0.webp' },
+      { bg: '#110828', border: 'rgba(168,85,247,.15)', opacity: '1', title: 'Anthropic', author: 'Varsha Reddy', hasLink: true, link: 'https://drive.google.com/file/d/1SCDidd_m9X-QlpWXa4Uic_BRpvwKnIGu/view?usp=drive_link', hasLogo: true, logo: 'images/cotm-mention-logo-1.webp' },
+      { bg: '#0f0820', border: 'rgba(168,85,247,.08)', opacity: '.5', title: 'Upcoming', author: 'To be announced', hasLink: false, link: '#', hasLogo: false, logo: '' },
+      { bg: '#0f0820', border: 'rgba(168,85,247,.08)', opacity: '.5', title: 'Upcoming', author: 'To be announced', hasLink: false, link: '#', hasLogo: false, logo: '' },
     ];
 
     // COTM archive — submissions (editable)
@@ -967,22 +1050,16 @@ class Component extends DCLogic {
       title: s.title,
       author: s.author,
       link: s.link,
+      // Company logos live in images/cotm-logo-<idx>.webp, one per submission
+      // above — add a matching file when you add a row to cotmSubmissions.
+      logo: 'images/cotm-logo-' + idx + '.webp',
     }));
     const cotmArchivePage = allCotmArchive.slice(0, archiveShowCount);
     const hasMoreArchive = archiveShowCount < allCotmArchive.length;
 
-    const leaderboard = [
-      { rank: 1,  name: 'Aarav Shah',    grade: 'XI A',  portfolio: '₹1,24,350', returns: '+24.35%', rankColor: '#d4a853',              returnColor: '#4ade80' },
-      { rank: 2,  name: 'Priya Mehta',   grade: 'XII B', portfolio: '₹1,18,920', returns: '+18.92%', rankColor: '#9ca3af',              returnColor: '#4ade80' },
-      { rank: 3,  name: 'Rohan Iyer',    grade: 'XI C',  portfolio: '₹1,14,650', returns: '+14.65%', rankColor: '#cd7f32',              returnColor: '#4ade80' },
-      { rank: 4,  name: 'Ananya Patel',  grade: 'XII A', portfolio: '₹1,09,230', returns: '+9.23%',  rankColor: 'rgba(240,232,255,0.5)', returnColor: '#4ade80' },
-      { rank: 5,  name: 'Kabir Singh',   grade: 'XI B',  portfolio: '₹1,07,840', returns: '+7.84%',  rankColor: 'rgba(240,232,255,0.5)', returnColor: '#4ade80' },
-      { rank: 6,  name: 'Zara Ahmed',    grade: 'XII C', portfolio: '₹1,05,120', returns: '+5.12%',  rankColor: 'rgba(240,232,255,0.5)', returnColor: '#4ade80' },
-      { rank: 7,  name: 'Dev Sharma',    grade: 'XI A',  portfolio: '₹1,02,890', returns: '+2.89%',  rankColor: 'rgba(240,232,255,0.5)', returnColor: '#4ade80' },
-      { rank: 8,  name: 'Meera Joshi',   grade: 'XII B', portfolio: '₹98,450',   returns: '-1.55%',  rankColor: 'rgba(240,232,255,0.5)', returnColor: '#f87171' },
-      { rank: 9,  name: 'Aryan Gupta',   grade: 'XI C',  portfolio: '₹96,780',   returns: '-3.22%',  rankColor: 'rgba(240,232,255,0.5)', returnColor: '#f87171' },
-      { rank: 10, name: 'Sia Kapoor',    grade: 'XII A', portfolio: '₹94,230',   returns: '-5.77%',  rankColor: 'rgba(240,232,255,0.5)', returnColor: '#f87171' },
-    ];
+    // No `leaderboard` data here on purpose. The CSX page renders a static
+    // "Live Leaderboard — Coming Soon" panel until the season goes live and a
+    // real feed is connected.
 
     return {
       isHome:         currentPage === 'home',
@@ -996,8 +1073,12 @@ class Component extends DCLogic {
       isContact:      currentPage === 'contact',
 
       pageOpacity: transitioning ? '0' : '1',
-      navItems, team, leadership, leaderboard,
-      galleryPhotos: Array.from({ length: 15 }, (_, i) => ({ id: 'pf26-photo-' + (i + 1) })),
+      navItems, team, leadership,
+      galleryPhotos: Array.from({ length: 15 }, (_, i) => ({
+        id:  'pf26-photo-' + (i + 1),
+        src: 'images/pf26-photo-' + (i + 1) + '.webp',
+        alt: 'Portfolio 2026 event photograph ' + (i + 1) + ' of 15',
+      })),
       galleryRef: (el) => { this.galleryEl = el; },
       galleryPrev: () => this.scrollGallery(-1),
       galleryNext: () => this.scrollGallery(1),
@@ -1023,6 +1104,10 @@ class Component extends DCLogic {
       formMessage:   form.message,
       formSubmitted,
       formNotSubmitted: !formSubmitted,
+      formSending,
+      formFailed,
+      formButtonLabel:   formSending ? 'Sending…' : 'Submit Query',
+      formButtonOpacity: formSending ? '.6' : '1',
       onNameChange:    (e) => this.handleForm('name', e),
       onEmailChange:   (e) => this.handleForm('email', e),
       onSubjectChange: (e) => this.handleForm('subject', e),
