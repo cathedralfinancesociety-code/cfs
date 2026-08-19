@@ -91,7 +91,8 @@ Naming maps to where the image appears:
 
 **Team headshots:** add `images/team-<first>-<last>.webp` (square, 800x800) and a
 `'Name': 'images/...'` entry in the `photos` object. The card falls back to the
-initials circle for anyone without an entry.
+initials circle for anyone without an entry. **Leadership only** — the OC keeps
+initials by design, so don't wire `photos` into the `team` grid.
 
 **Adding a COTM article:** add a row to `cotmSubmissions` *and* drop a matching
 `images/cotm-logo-<idx>.webp`. Indices are positional — inserting at the top
@@ -117,11 +118,10 @@ Field IDs (`entry.*`) in `handleSubmit()` are tied to that specific Google Form.
 
 ## Known placeholder content
 
-- **Team bios** — six members still show the generated `bioPlaceholder()` text:
-  Vaibhav Sanghai, Saakrit Agarwal, Arnav Singh, Sukti Goyal, Zaynah Lucien and
-  Aashi Bubna. To add one, put a `'Name': 'bio text'` entry in the `bios` object;
-  `bioOf()` picks it up for both the leadership and OC lists. Keys must match the
-  `name` exactly.
+- **Team bios** — all ten members now have a real bio, so `bioPlaceholder()` is
+  currently unused (kept for whoever joins next). To add one, put a
+  `'Name': 'bio text'` entry in the `bios` object; `bioOf()` picks it up for both
+  the leadership and OC lists. Keys must match the `name` exactly.
 - **COTM archive dates** — all hardcoded to "July 2026".
 - **CSX leaderboard** — intentionally a static "Coming Soon" panel. There is no
   leaderboard data in the component; don't add fake rows to fill it.
@@ -139,4 +139,13 @@ hardcoded cards at the same time or the page will show every episode twice.
   block inside `<helmet>` (resets, keyframes, media queries).
 - Palette: background `#07030f`, surface `#110828`, purple accent `#a855f7`,
   gold `#d4a853`, red `#f87171`, text `#f0e8ff`.
+- **No em dashes in copy.** Use a colon, a comma, or a full stop. (The `──────`
+  page-divider comments in the markup are box-drawing characters, not em dashes,
+  and should stay.)
+- Body text is `rgba(240,232,255,α)`. Keep α at **.6 and above** for anything
+  meant to be read, .5 for small meta labels, and .38 as the practical floor
+  (placeholders, the copyright line). Anything fainter is unreadable on `#07030f`.
+- Each initiative page opens with an "In-depth intro" block after the hero: a
+  centred 820px paragraph introducing the initiative. Project Sanchay has its own
+  "The Mission" section instead and doesn't carry one.
 - Fonts: Cormorant Garamond (headings), DM Sans (body), loaded from Google Fonts.
