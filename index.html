@@ -217,9 +217,15 @@ input,textarea,select,button{max-width:100%;font-family:inherit}
         <sc-for list="{{ leadership }}" as="lead" hint-placeholder-count="2">
           <div style="background:linear-gradient(135deg,#1a0f04,#160b26);border:1px solid rgba(212,168,83,.32);padding:clamp(22px,3vw,34px) clamp(18px,3vw,28px);border-radius:4px;text-align:center;position:relative;overflow:hidden;transition:border-color .3s;" style-hover="border-color: rgba(212,168,83,.6);">
             <div style="position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(212,168,83,.14),transparent 70%);pointer-events:none;"></div>
-            <div style="width:66px;height:66px;border-radius:50%;background:linear-gradient(135deg,rgba(212,168,83,.32),rgba(146,64,14,.4));margin:0 auto 16px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(212,168,83,.4);">
-              <span style="font:600 22px 'Cormorant Garamond';color:#fde68a;">{{ lead.initials }}</span>
-            </div>
+            <sc-if value="{{ lead.hasPhoto }}">
+              <!-- no loading="lazy": inside sc-for the node is built detached, so the lazy observer never fires and the image stays blank -->
+              <img src="{{ lead.photo }}" alt="{{ lead.name }}" decoding="async" style="width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:center top;margin:0 auto 16px;display:block;border:1px solid rgba(212,168,83,.45);">
+            </sc-if>
+            <sc-if value="{{ lead.noPhoto }}">
+              <div style="width:66px;height:66px;border-radius:50%;background:linear-gradient(135deg,rgba(212,168,83,.32),rgba(146,64,14,.4));margin:0 auto 16px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(212,168,83,.4);">
+                <span style="font:600 22px 'Cormorant Garamond';color:#fde68a;">{{ lead.initials }}</span>
+              </div>
+            </sc-if>
             <div style="font:500 9px 'DM Sans';letter-spacing:.2em;color:#d4a853;text-transform:uppercase;margin-bottom:8px;">{{ lead.role }}</div>
             <div style="font:700 clamp(20px,2.8vw,24px) 'Cormorant Garamond';color:#f0e8ff;margin-bottom:12px;">{{ lead.name }}</div>
             <div style="font:400 13px/1.7 'DM Sans';color:rgba(240,232,255,.5);">{{ lead.bio }}</div>
@@ -905,10 +911,15 @@ class Component extends DCLogic {
     };
     const bioOf = (n) => bios[n] || bioPlaceholder(n);
 
+    // Headshots, keyed by name. Anyone without an entry falls back to their initials.
+    const photos = {
+      'Ranveer Chainani': 'images/team-ranveer-chainani.webp',
+    };
+
     const leadership = [
       { name: presidentName, role: presidentRole, initials: initialsOf(presidentName), bio: bioOf(presidentName) },
       { name: secretaryName, role: secretaryRole, initials: initialsOf(secretaryName), bio: bioOf(secretaryName) },
-    ];
+    ].map(m => ({ ...m, photo: photos[m.name] || '', hasPhoto: !!photos[m.name], noPhoto: !photos[m.name] }));
 
     const team = [
       { name: 'Saakrit Agarwal', role: 'Organising Committee', initials: 'SA' },

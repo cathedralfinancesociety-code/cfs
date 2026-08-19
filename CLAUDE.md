@@ -87,6 +87,11 @@ Naming maps to where the image appears:
 | `cotm-winner-logo-0.webp` | COTM winner card | `realWinner.logo` |
 | `cotm-mention-logo-0..1.webp` | COTM honourable mentions | `h.logo` |
 | `jai-vakeel-logo.webp` | Project Sanchay partner | inline markup |
+| `team-<first>-<last>.webp` | Our Team leadership cards | `photos` map, keyed by name |
+
+**Team headshots:** add `images/team-<first>-<last>.webp` (square, 800x800) and a
+`'Name': 'images/...'` entry in the `photos` object. The card falls back to the
+initials circle for anyone without an entry.
 
 **Adding a COTM article:** add a row to `cotmSubmissions` *and* drop a matching
 `images/cotm-logo-<idx>.webp`. Indices are positional — inserting at the top
@@ -94,8 +99,12 @@ shifts every logo. Entries without a logo set `hasLogo: false` so no `<img>` is
 emitted (an empty `src` renders a broken-image icon).
 
 **Adding images generally:** convert to WebP, keep the long edge ≤1200px, put it
-in `images/`, and give every `<img>` an `alt`, `loading="lazy"` and
-`decoding="async"`.
+in `images/`, and give every `<img>` an `alt` and `decoding="async"`.
+
+**Do not put `loading="lazy"` on an `<img>` inside an `sc-for` or `sc-if`.** The
+runtime builds those nodes detached from the document, so the browser's lazy
+observer never fires and the image stays permanently blank — with a 200 on the
+file and nothing in the console. `loading="lazy"` is fine in static markup.
 
 ## Contact form
 
