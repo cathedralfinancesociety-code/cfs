@@ -102,6 +102,15 @@ emitted (an empty `src` renders a broken-image icon).
 **Adding images generally:** convert to WebP, keep the long edge ≤1200px, put it
 in `images/`, and give every `<img>` an `alt` and `decoding="async"`.
 
+**Replacing an image in place needs a URL bump.** `vercel.json` caches `images/`
+and `uploads/` hard. It used to send `immutable`, which told browsers never to
+revalidate for a year — so swapping a file's bytes under the same filename was
+invisible to anyone who had already loaded the page, forever. That header is now
+`max-age=0, s-maxage=31536000, must-revalidate`: the CDN still caches
+aggressively, but browsers revalidate and pick up changes. For files replaced
+before that fix (`portfolio-logo.png`, `newsletter-6.webp`) the `src` carries a
+`?v=2` — leave it, and bump the number if you replace either again.
+
 **Do not put `loading="lazy"` on an `<img>` inside an `sc-for` or `sc-if`.** The
 runtime builds those nodes detached from the document, so the browser's lazy
 observer never fires and the image stays permanently blank — with a 200 on the
