@@ -5,7 +5,7 @@ School, Mumbai).
 
 - **Live:** https://thecathedralfinancesociety.vercel.app/
 - **Repo:** https://github.com/cathedralfinancesociety-code/cfs
-- **Deploy:** Vercel, static, auto-deploys on push to `main`. No build step.
+- **Deploy:** Vercel, auto-deploys on push to `main`. No build step. Static site plus one serverless function (`api/quotes.js`).
 
 ## Run it locally
 
@@ -19,6 +19,7 @@ You must serve it over HTTP. Opening `index.html` with `file://` will not work.
 
 ```
 index.html      The entire site — markup, CSS, page data, and app logic.
+api/quotes.js   Serverless function: delayed NSE/BSE quotes for the home-page ticker.
 support.js      Vendored "dc-runtime" that renders index.html. Do not edit.
 images/         Web-ready images used by the site (WebP).
 uploads/        Logos (CFS mark, Portfolio mark).
@@ -115,6 +116,16 @@ before that fix (`portfolio-logo.png`, `newsletter-6.webp`) the `src` carries a
 runtime builds those nodes detached from the document, so the browser's lazy
 observer never fires and the image stays permanently blank — with a 200 on the
 file and nothing in the console. `loading="lazy"` is fine in static markup.
+
+## Market ticker
+
+The strip under the nav is filled at runtime by a plain `<script>` at the end of
+`index.html`, which fetches `/api/quotes`. That function reads Yahoo Finance's
+unofficial chart endpoint (no key, no SLA) and caches for 60s at the CDN. If it
+fails the ticker says "Market data unavailable"; never put made-up prices back.
+`python3 -m http.server` has no `/api`, so locally the ticker shows "unavailable"
+unless you run a small server that calls `api/quotes.js`. The script looks up
+`.ticker-band` on every refresh because the runtime replaces that node.
 
 ## Contact form
 
