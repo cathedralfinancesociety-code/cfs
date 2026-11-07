@@ -103,6 +103,14 @@ span[style*="rgb(196, 181, 253), rgb(168, 85, 247)"],span[style*="#c4b5fd,#a855f
 [style*="border: 1px solid rgba(168, 85, 247"][style*="border-radius"]{border-color:rgba(240,232,255,.1)!important}
 .csx-register,.csx-register:hover{background:#7c3aed!important;box-shadow:none!important}
 .csx-register:hover{background:#8b4df0!important}
+
+/* Mobile: hero buttons wrap instead of squeezing; episode cards stack the thumbnail above the text */
+@media(max-width:640px){
+  .hero-actions{flex-wrap:wrap;justify-content:center}
+  [style*="grid-template-columns: clamp(120px,28%,300px) 1fr"],[style*="grid-template-columns: clamp(120px, 28%, 300px) 1fr"]{grid-template-columns:1fr!important}
+  [style*="z-index: 2; font: 400 10px"]{top:12px!important;left:12px!important;padding:4px 8px;background:rgba(7,3,15,.78);border-radius:4px;color:#f0e8ff!important}
+  [style*="grid-template-columns: clamp(120px,28%,300px) 1fr"]>div:first-child,[style*="grid-template-columns: clamp(120px, 28%, 300px) 1fr"]>div:first-child{border-right:0!important;border-bottom:1px solid rgba(240,232,255,.1)}
+}
 </style>
 </helmet>
 
@@ -155,7 +163,7 @@ span[style*="rgb(196, 181, 253), rgb(168, 85, 247)"],span[style*="#c4b5fd,#a855f
 
       <p style="font:400 clamp(17px,2.2vw,21px)/1.7 'Cormorant Garamond';font-style:italic;color:rgba(240,232,255,.74);max-width:500px;margin-bottom:48px;">Where Tomorrow's Financiers Begin Today</p>
 
-      <div style="display:flex;gap:16px;align-items:center;">
+      <div class="hero-actions" style="display:flex;gap:16px;align-items:center;">
         <button onClick="{{ goPortfolio }}" style="background:linear-gradient(135deg,#7c3aed,#5b21b6);color:#fff;border:none;padding:16px 40px;font:500 11px 'DM Sans';letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border-radius:8px;transition:transform .2s,box-shadow .2s;" style-hover="transform: translateY(-2px); box-shadow: 0 12px 32px rgba(124,58,237,.45);">Explore Our Work</button>
         <button onClick="{{ goContact }}" style="background:transparent;color:rgba(240,232,255,.86);border:1px solid rgba(240,232,255,.1);padding:16px 40px;font:500 11px 'DM Sans';letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border-radius:8px;transition:border-color .2s,color .2s;" style-hover="border-color: #a855f7; color: #e9d5ff;">Get In Touch</button>
       </div>
